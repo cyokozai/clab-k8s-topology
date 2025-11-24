@@ -1,0 +1,19 @@
+services:
+  clab:
+    container_name: clab-k8s
+    environment:
+      - LANG="C.UTF-8"
+        LC_ALL="C.UTF-8"
+        FILEPATH=${FILEPATH:-.}
+    image: "ghcr.io/srl-labs/clab"
+    restart: always
+    tty: true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+        .:/clab
+    working_dir: /clab
+    command: [ "containerlab", "-t", "${FILEPATH:-.}", "deploy" ]
+
+volumes:
+  clab-volume:
+    name: clab-volume
