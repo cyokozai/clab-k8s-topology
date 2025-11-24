@@ -6,10 +6,10 @@
 
 [Link](https://containerlab.dev/install/#container)
 
-- Use Docker compose
+- docker compose up
 
   ```bash
-  docker compose up -d --build 
+  docker compose run -e FILEPATH="networks/sample.yaml" -d --it --rm 
   ```
 
 ## Components
@@ -18,3 +18,4 @@
 
   ```mermaid
   ```
+  
